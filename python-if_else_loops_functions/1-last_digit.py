@@ -6,7 +6,7 @@ if number < 0:
 else:
     lsdigit = number % 10
 
-if  lsdigit > 5:
+if lsdigit > 5:
     print("Last digit of {:d} is {:d} and is greater than 5"
           .format(number, lsdigit))
 elif lsdigit < 6 and lsdigit != 0:
