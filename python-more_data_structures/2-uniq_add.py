@@ -4,4 +4,4 @@ def uniq_add(my_list=[]):
         for m in my_list:
             if m not in Makelist:
                 Makelist.append(m)
-        return sum(Makelist)
+                return sum(Makelist)
