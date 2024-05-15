@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def uniq_add(my_list=[]):
-        Anotherlist = []
-        for m in my_list:
-            if m not in Anotherlistt:
-                Anotherlist.append(m)
-        return sum(Anotherlist)
+        another_list = []
+        for i in my_list:
+            if i not in another_list:
+                another_list.append(i)
+        return sum(another_list)
