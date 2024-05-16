@@ -5,7 +5,6 @@ class Square:
 
     Atributes:
     atr1 (size): size of square"""
-
     def __init__(self, size=0):
         """Args:
         size (int): size for __size attribute of class instance"""
