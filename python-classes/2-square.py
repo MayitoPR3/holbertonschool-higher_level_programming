@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-"""This module creates a class named Square"""
-class Square:
-    """
-    above is class named Square
+"""The module creates a class named Square"""
 
-    Atributes:
-    atr1 (size): size of square
+
+class Square:
+    """This is the class named Square
+
+    Attributes:
+    attr1 (size): means size of square
     """
     def __init__(self, size=0):
         """
