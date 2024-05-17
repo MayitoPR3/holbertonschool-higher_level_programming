@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""The module creates a class named Square"""
+"""This module creates a class Square"""
+
+
 class Square:
     """This is the class named Square
 
