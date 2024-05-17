@@ -5,8 +5,6 @@ Raises:
     TypeError: size must be an integer
     ValueError: size must be >= 0
 """
-
-
 class Square:
     """
     This is the class name Square
