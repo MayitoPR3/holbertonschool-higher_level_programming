@@ -3,7 +3,8 @@
 
 
 class Square:
-    """This is the class named Square
+    """
+    This is the class named Square
 
     Attributes:
     attr1 (size): means size of square
