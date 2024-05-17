@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""This module creates a class Square
+"""
+This module creates a class Square
 
 Raises:
     TypeError: size must be an integer
@@ -8,11 +9,11 @@ Raises:
 
 
 class Square:
-    """_summary_
+    """
+    This is the class name Square
     """
     def __init__(self, size=0):
-        """_summary_
-
+        """
         Args:
             size: size for __size attribute of class instance. Defaults to 0.
 
