@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """The module creates a class Square"""
 
 
@@ -9,6 +10,7 @@ class Square:
     Attributes:
     attr1 (size): means size of square
     """
+
     def __init__(self, size=0):
         """
         Args:
