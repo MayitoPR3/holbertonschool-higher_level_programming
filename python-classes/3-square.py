@@ -1,7 +1,10 @@
 #!/usr/bin/python3
-"""The module creates a class named Square"""
+"""The module creates a class Square"""
+
+
 class Square:
-    """This is the class named Square
+    """
+    This is the class named Square
 
     Attributes:
     attr1 (size): means size of square
