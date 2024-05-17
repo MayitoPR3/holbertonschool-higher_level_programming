@@ -6,12 +6,12 @@ class Square:
     """
     This is the class Square
     
-    Attributes
+    Attributes:
     attr1: (size) size of square
     """
     def __init__(self, size):
         """
-        Arguments
+        Arguments:
         size: for __size attribute of class instance
         """
         self.__size = size
