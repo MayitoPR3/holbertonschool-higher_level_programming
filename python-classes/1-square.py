@@ -4,14 +4,14 @@
 
 class Square:
     """
-    This is the class Square
-    
+    This is the class named Square
+
     Attributes:
-    attr1: (size) size of square
+    attr1 (size): means size of square
     """
     def __init__(self, size):
         """
-        Arguments:
-        size: for __size attribute of class instance
+        Args:
+        size (int): size for __size attribute of class instance
         """
         self.__size = size
