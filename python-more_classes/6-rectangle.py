@@ -5,8 +5,9 @@ This is the module to create the class Rectangle
 
 
 class Rectangle:
+    """This is the rectangle class"""
     number_of_instances = 0
-    """This is the Rectangle class"""
+
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
