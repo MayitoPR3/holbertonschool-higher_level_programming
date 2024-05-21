@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+This is the module to create the class Rectangle
+"""
+
+
 class Rectangle:
     """This is the Rectangle Class"""
     def __init__(self, width=0, height=0):
