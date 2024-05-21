@@ -44,7 +44,7 @@ class Rectangle:
         @property
         def height(self):
             """
-            height _summary_
+            Property to get the height
             """
             return self.__height
 
