@@ -1,9 +1,4 @@
 #!/usr/bin/python3
-"""
-This is the Module that creates the class Rectangle
-"""
-
-
 class Rectangle():
     """This is the Rectangle Class"""
     def __init__(self, width=0, height=0):
@@ -17,9 +12,7 @@ class Rectangle():
 
     @width.setter
     def width(self, value):
-        """
-        Property to set the width
-
+        """Property to set the width
         Raises:
             TypeError: if width is not an integer
             ValueError: if width is less than 0
@@ -32,16 +25,12 @@ class Rectangle():
 
     @property
     def height(self):
-        """
-        Property to get the height
-        """
+        """Property to get the height"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """
-        Property to set the height
-
+        """Property to set the height
         Raises:
             TypeError: if width is not an integer
             ValueError: if height is less than 0
