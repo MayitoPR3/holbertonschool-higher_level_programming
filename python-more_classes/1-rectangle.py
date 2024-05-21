@@ -46,7 +46,7 @@ class Rectangle:
             """
             height _summary_
             """
-            return self.___height
+            return self.__height
 
         @height.setter
         def height(self, value):
