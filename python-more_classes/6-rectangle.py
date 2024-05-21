@@ -6,7 +6,7 @@ This is the module to create the class Rectangle
 
 class Rectangle:
     number_of_instances = 0
-    """This is the Rectangle Class"""
+    """This is the Rectangle class"""
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
@@ -70,5 +70,6 @@ class Rectangle:
         (... being 3 dots not ellipsis)
         when an instance of Rectangle is deleted
         """
-        print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
+
