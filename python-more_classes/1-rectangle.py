@@ -1,25 +1,18 @@
 #!/usr/bin/python3
 """
-    This module creates an empty class Rectangle
+This is the Module that creates the class Rectangle
 """
 
 
-class Rectangle:
-    """
-    This is the empty class
-    """
+class Rectangle():
+    """This is the Rectangle Class"""
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """
-        Property to retrieve the width
-
-        Returns:
-            The width
-        """
+        """Property to retrieve the width"""
         return self.__width
 
     @width.setter
