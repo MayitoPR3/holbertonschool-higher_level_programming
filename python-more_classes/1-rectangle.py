@@ -8,14 +8,6 @@ class Rectangle:
     """
     This is the empty class
     """
-    def __init__(self, width=0, height=0):
-        """
-        Instantiation
-
-        Args:
-            width Defaults to 0.
-            height Defaults to 0.
-        """
     @property
     def width(self):
         """
