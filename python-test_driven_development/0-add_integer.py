@@ -6,7 +6,7 @@ This module is for add integer function
 
 
 def add_integer(a, b=98):
-    
+
     """ Function that adds two integers.
 
     Args:
