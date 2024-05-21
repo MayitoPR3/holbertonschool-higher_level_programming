@@ -5,9 +5,10 @@ This is the module to create the class Rectangle
 
 
 class Rectangle:
+    """This is the Rectangle class"""
     number_of_instances = 0
     print_symbol = "#"
-    """This is the Rectangle class"""
+
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
