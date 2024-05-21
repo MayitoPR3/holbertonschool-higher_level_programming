@@ -17,8 +17,13 @@ def add_integer(a, b=98):
         int: The return value. The sum
     """
 
-    if (type(a) != int and type(a) != float) or a != a:
+    if type(a) not in (int, float):
         raise TypeError("a must be an integer")
-    if type(b) != int and type(b) != float or b != b:
+    elif type(b) not in (int, float):
         raise TypeError("b must be an integer")
-    return int(a) + int(b)
+    else:
+        return int(a) + int(b)
+
+    if __name__ == "__main__":
+        import doctest
+        doctest.testfile("tests/0-add_integer.txt")
