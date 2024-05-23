@@ -25,6 +25,3 @@ my_list = MyList([3,4,5,8,7,1])
 my_list.print_sorted()
 [1,3,4,5,7,8]
 
-Printing a sorted list with different food
-my_list = MyList(['batata', 'guineo', 'aguacacate'])
-my_list.print_sorted()
