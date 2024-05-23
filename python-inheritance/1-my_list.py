@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 class MyList(list):
     """MyList class inherited from parent class list"""
 
