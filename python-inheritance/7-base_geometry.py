@@ -2,7 +2,7 @@
 """BaseGeometry class Module"""
 
 
-class BaseGeometry():
+class BaseGeometry:
     """BaseGeometry class"""
     def area(self):
         """Method Raises an Exception"""
