@@ -20,9 +20,10 @@ class VerboseList(list):
 
     def pop(self, index=None):
         """defines the override method of list pop"""
-        if index is None:
-            item = super().pop()
+        if index is not None:
+            item = self[index]
             print(f"Popped {item} from the list.")
         else:
-            item = super().pop(index)
+            item = self[-1]
             print(f"Popped {item} from the list.")
+        super().pop(index)
