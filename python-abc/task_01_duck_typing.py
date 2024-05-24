@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Imports for the module"""
 from abc import ABC, abstractmethod
 import math
 
