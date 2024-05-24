@@ -8,6 +8,7 @@ class Shape(ABC):
     @abstractmethod
     def area(self):
         """Defines the area of the class Shape"""
+        pass
 
     def perimeter(self):
         """Defines the perimeter of the class Shape"""
@@ -26,7 +27,7 @@ class Circle(Shape):
 
     def perimeter(self):
         """defines the perimeter of the circle"""
-        return 2 * math.pi * self.radius
+        return 2 * (math.pi * self.radius)
 
 
 class Rectangle(Shape):
