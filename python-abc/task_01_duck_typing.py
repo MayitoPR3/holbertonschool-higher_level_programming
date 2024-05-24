@@ -9,17 +9,15 @@ class Shape(ABC):
     def area(self):
         """Defines the area of the class Shape"""
 
-    @abstractmethod
     def perimeter(self):
         """Defines the perimeter of the class Shape"""
+        pass
 
 
 class Circle(Shape):
     """Class named Circle with parent class Shape"""
     def __init__(self, radius):
         """Initialized the radius"""
-        if radius < 0:
-            raise ValueError("radius must be non negative")
         self.radius = radius
 
     def area(self):
