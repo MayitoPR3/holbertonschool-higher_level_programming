@@ -8,12 +8,10 @@ class Shape(ABC):
     @abstractmethod
     def area(self):
         """Defines the area of the class Shape"""
-        pass
 
     @abstractmethod
     def perimeter(self):
         """Defines the perimeter of the class Shape"""
-        pass
 
 
 class Circle(Shape):
