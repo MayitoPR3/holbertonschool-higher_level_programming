@@ -50,4 +50,4 @@ class Rectangle(Shape):
 def shape_info(shape):
     """defines the shape information"""
     print("Area:", shape.area())
-    print(("Perimeter:", shape.perimeter()))
+    print("Perimeter:", shape.perimeter())
