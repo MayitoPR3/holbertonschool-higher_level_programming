@@ -15,15 +15,23 @@ class VerboseList(list):
 
     def remove(self, item):
         """defines the override method of list remove"""
+        if item in self:
+            print(f"Removed {item} from the list")
+        else:
+            print(f"{item} is not in the list")
         super().remove(item)
-        print(f"Removed {item} from the list")
 
     def pop(self, index=None):
         """defines the override method of list pop"""
         if index is not None:
-            item = self[index]
+            item = super().pop(index)
             print(f"Popped {item} from the list.")
         else:
-            item = self[-1]
-            print(f"Popped {item} from the list.")
-        super().pop(index)
+            if len(self) > 0:
+                item = super().pop()
+                print(f"Popped {item} from the list.")
+                return item
+            else:
+                print("List is empty. Cannot pop.")
+                return None
+
