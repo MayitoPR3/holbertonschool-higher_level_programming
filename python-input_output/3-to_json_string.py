@@ -1,0 +1,4 @@
+#!/usr/bin/python3
+
+def to_json_string(my_obj):
+    return my_obj
