@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Module that created the defines of read file"""
+
 
 def read_file(filename=""):
     """defines the reading of file"""
