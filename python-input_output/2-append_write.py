@@ -5,6 +5,6 @@
 
 def append_write(filename="", text=""):
     """defines - appends a string at the end of a text file"""
-    with open(filename, 'w', encoding="utf-8") as file:
-        append_write(filename="")
+    with open(filename, 'a', encoding="utf-8") as file:
+        file.write(text)
         return len(text)
