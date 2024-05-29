@@ -20,7 +20,10 @@ def load_from_json_file(filename):
 def main():
     import sys
 
-    the_list = load_from_json_file('add_item.json')
+    try:
+        the_list = load_from_json_file('add_item.json')
+    except FileNotFoundError:
+        the_list = []
 
     for arg in sys.argv[1:]:
         the_list.append(arg)
