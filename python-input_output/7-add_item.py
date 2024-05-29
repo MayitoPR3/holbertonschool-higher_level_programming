@@ -26,3 +26,7 @@ def main():
         the_list.append(arg)
 
     save_to_json_file(the_list, 'add_item.json')
+
+
+if __name__ == "__main__":
+    main()
