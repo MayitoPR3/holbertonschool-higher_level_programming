@@ -12,7 +12,8 @@ class Student:
 
     def to_json(self, attrs=None):
         """retrieves a dictionary representation of a Student instance"""
-        attrs = self.__dict__.keys()
+        if attrs is None:
+            attrs = self.__dict__.keys()
 
         serializable_dict = {}
         for attr in attrs:
