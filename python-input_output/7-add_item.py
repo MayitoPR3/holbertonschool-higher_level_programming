@@ -22,4 +22,7 @@ def main():
 
     the_list = load_from_json_file('add_item.json')
 
+    for arg in sys.argv[1:]:
+        the_list.append(arg)
+
     save_to_json_file(the_list, 'add_item.json')
