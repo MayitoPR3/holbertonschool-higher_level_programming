@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""module for converting csv to json"""
+"""module for conversion csv to json"""
 import csv
 import json
 
