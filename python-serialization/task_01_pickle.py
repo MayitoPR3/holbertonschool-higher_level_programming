@@ -21,11 +21,19 @@ class CustomObject:
 
     def serialize(self, filename):
         """defines the serialization"""
-        with open(filename, 'wb') as file:
-            pickle.dump(self, file)
+        try:
+            with open(filename, 'wb') as file:
+                pickle.dump(self, file)
+        except (FileNotFoundError, pickle.PickleError):
+            print("Error: File doesn't exist or is malformed")
+            return None
 
     @classmethod
     def deserialize(cls, filename):
         """defines the deserialization"""
-        with open(filename, 'rb') as file:
-            return pickle.load(file)
+        try:
+            with open(filename, 'rb') as file:
+                return pickle.load(file)
+        except (FileNotFoundError, pickle.UnpicklingError):
+            print("Error: File doesn't exist or is malformed")
+            return None
