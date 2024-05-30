@@ -23,7 +23,10 @@ class CustomObject:
     def serialize(self, filename):
         """defines the serialization"""
         with open(filename, 'wb') as file:
-            pickle.dump(self, file)
+            try:
+                pickle.dump(self, file)
+            except pickle.PicklingError:
+                return None
 
     @classmethod
     def deserialize(cls, filename):
