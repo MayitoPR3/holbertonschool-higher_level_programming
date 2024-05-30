@@ -22,11 +22,11 @@ class CustomObject:
 
     def serialize(self, filename):
         """defines the serialization"""
-        with open(filename, 'wb') as file:
-            try:
+        try:
+            with open(filename, 'wb') as file:
                 pickle.dump(self, file)
-            except pickle.PicklingError:
-                return None
+        except pickle.PickleError:
+            return None
 
     @classmethod
     def deserialize(cls, filename):
