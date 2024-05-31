@@ -12,7 +12,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         self.send_header('Content-type', content_type)
         self.end_headers()
 
-    def do_get(self):
+    def do_GET(self):
         """method to handle GET requests"""
         if self.path == '/':
             self._set_response()
