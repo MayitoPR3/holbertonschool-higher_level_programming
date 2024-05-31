@@ -13,7 +13,9 @@ def fetch_and_print_posts():
     if response.status_code == 200:
         posts = response.json()
         for post in posts:
-            print(post['title'])
+            print("Title: ", post['title'])
+        else:
+            print("Error: ", response.status_code)
 
 
 def fetch_and_save_posts():
@@ -29,3 +31,8 @@ def fetch_and_save_posts():
             writer.writeheader()
             for post in posts:
                 writer.writerow({key: post[key] for key in keys})
+
+
+if __name__ == "__main__":
+    fetch_and_print_posts()
+    fetch_and_save_posts()
