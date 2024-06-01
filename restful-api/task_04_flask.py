@@ -21,8 +21,7 @@ def home():
 def get_data():
     """endpoint, return usernames"""
 
-    usernames = list(users.keys())
-    return jsonify(usernames)
+    return jsonify(list(users.keys()))
 
 
 @app.route('/status')
@@ -41,7 +40,7 @@ def get_user(username):
     if user:
         return jsonify(user)
     else:
-        return jsonify({"error": "User not found"})
+        return jsonify({"error": "User not found"}), 404
 
 
 @app.route('/add_user', methods=['POST'])
@@ -54,11 +53,13 @@ def add_user():
     data = request.get_json()
     if data:
         username = data.get('username')
-        if username:
-            users[username] = data
-            return jsonify({"message": "User added", "user": data})
-        else:
+        if not username:
             return jsonify({"error": "Username not provided"}), 400
+        elif username in users:
+            return jsonify({"error": "Username already exists"}), 400
+        else:
+            users[username] = data
+            return jsonify({"message": "User added", "user": data}), 201
     else:
         return jsonify({"error": "Invalid JSON"}), 400
 
