@@ -6,29 +6,31 @@ import json
 
 class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
     """class for the Simple HTTP Request Handler"""
+
+    def _set_headers(self, status_code=200, content_type='text/plain'):
+        """
+        Set HTTP response headers.
+        """
+
+        self.send_response(status_code)
+        self.send_header('Content-type', content_type)
+        self.end_headers()
+
     def do_GET(self):
         """method to handle GET requests"""
         if self.path == '/':
-            self.send_response(200)
-            self.send_header('Content-type', 'text/plain')
-            self.end_headers()
-            self.wfile.write(bytes("Hello, this is a simple API!", "utf-8"))
+            self._set_headers()
+            self.wfile.write(b'Hello, this is a simple API!')
         elif self.path == '/data':
+            self._set_headers(content_type='application/json')
             data = {"name": "John", "age": 30, "city": "New York"}
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.end_headers()
-            self.wfile.write(bytes(json.dumps(data), "utf-8"))
+            self.wfile.write(json.dumps(data).encode())
         elif self.path == '/status':
-            self.send_response(200)
-            self.send_header('Content-type', 'text/plain')
-            self.end_headers()
-            self.wfile.write(bytes("OK", "utf-8"))
+            self._set_headers()
+            self.wfile.write(b'OK')
         else:
-            self.send_response(404)
-            self.send_header('Content-type', 'text/plain')
-            self.end_headers()
-            self.wfile.write(bytes("Endpoint not found", "utf-8"))
+            self._set_headers(status_code=404, content_type='text/plain')
+            self.wfile.write(b'404 Not Found')
 
 
 def run(server_class=http.server.HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8000):
