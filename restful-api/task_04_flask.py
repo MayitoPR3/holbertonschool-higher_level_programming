@@ -13,14 +13,12 @@ users = {
 @app.route('/')
 def home():
     """endpoint, Returns a welcome message"""
-
     return "Welcome to the Flask API!"
 
 
 @app.route('/data')
 def get_data():
     """endpoint, return usernames"""
-
     return jsonify(list(users.keys()))
 
 
@@ -35,7 +33,6 @@ def get_status():
 def get_user(username):
     """endpoint, details by username.
     """
-
     user = users.get(username)
     if user:
         return jsonify(user)
@@ -49,7 +46,6 @@ def add_user():
      Accepts JSON data with user details
      and adds it to the user dictionary.
     """
-
     data = request.get_json()
     if data:
         username = data.get('username')
