@@ -44,7 +44,7 @@ def get_user(username):
 def add_user():
     """endpoint to add a new user
      Accepts JSON data with user details
-     and adds it to the user dictionary.
+     and adds it to the user dictionary
     """
     data = request.get_json()
     if data:
