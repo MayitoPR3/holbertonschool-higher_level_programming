@@ -18,10 +18,10 @@ def home():
 @app.route('/data', methods=['GET'])
 def get_data():
     """endpoint, return usernames"""
-    if users:  # If users dictionary is not empty
+    if users:
         return jsonify(list(users.keys()))
     else:
-        return jsonify([])  # Return an empty list if no users
+        return jsonify([])
 
 
 @app.route('/status', methods=['GET'])
