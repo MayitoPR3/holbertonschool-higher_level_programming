@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Module for the API Task
+"""
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
