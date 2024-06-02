@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build Docker image
-        run: docker build -t docker.pkg.github.com/${{ https://github.com/mayitoPR3/docker-task.git }}/Dockerfile:latest .
+        run: docker build -t docker.pkg.github.com/${{ https://github.com/MayitoPR3/docker-task.git }}/Dockerfile:latest .
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v1
@@ -23,4 +23,4 @@ jobs:
           password: ${{ secrets.CR_PAT }}
 
       - name: Push Docker image to GitHub Container Registry
-        run: docker push docker.pkg.github.com/${{ https://github.com/mayitoPR3/docker-task.git }}/Dockerfile:latest
+        run: docker push docker.pkg.github.com/${{ https://github.com/MayitoPR3/docker-task.git }}/Dockerfile:latest
