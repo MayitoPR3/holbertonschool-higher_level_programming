@@ -18,10 +18,7 @@ def home():
 @app.route('/data', methods=['GET'])
 def get_data():
     """endpoint, return usernames"""
-    if users:
-        return jsonify(list(users.keys()))
-    else:
-        return jsonify([])
+    return jsonify(list(users.keys()))
 
 
 @app.route('/status', methods=['GET'])
@@ -44,17 +41,17 @@ def get_user(username):
 def add_user():
     """endpoint to add a new user"""
     data = request.get_json()
-    if not data:
-        return jsonify({"error": "Invalid JSON"}), 400
-
-    username = data.get('username')
-    if not username:
-        return jsonify({"error": "Username not provided"}), 400
-    elif username in users:
-        return jsonify({"error": "Username already exists"}), 400
+    if data:
+        username = data.get('username')
+        if not username:
+            return jsonify({"error": "Username not provided"}), 400
+        elif username in users:
+            return jsonify({"error": "Username already exists"}), 400
+        else:
+            users[username] = data
+            return jsonify({"message": "User added", "user": data}), 201
     else:
-        users[username] = data
-        return jsonify({"message": "User added", "user": data}), 201
+        return jsonify({"error": "Invalid JSON"}), 400
 
 
 if __name__ == "__main__":
