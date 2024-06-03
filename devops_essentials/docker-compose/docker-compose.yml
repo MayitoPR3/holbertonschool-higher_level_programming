@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    networks:
+      - pgnetwork
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  admin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    networks:
+      - pgnetwork
+
+networks:
+  pgnetwork:
+    driver: bridge
+
+volumes:
+  postgres_data:
