@@ -1,3 +1,3 @@
 -- show tables
-USE 'mysql';
+USE mysql;
 SHOW TABLES;
