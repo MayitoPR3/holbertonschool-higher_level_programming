@@ -11,8 +11,8 @@ import sys
 def list_states(username, password, database):
     # Connect to MySQL database
     try:
-        db = MySQLdb.connect(host='localhost', port=3306, 
-                             user=username, passwd=password, db=database)
+        db = MySQLdb.connect(host='localhost', port=3306,
+                            user=username, passwd=password, db=database)
         cursor = db.cursor()
 
         # Execute the query
@@ -32,11 +32,10 @@ def list_states(username, password, database):
     except MySQLdb.Error as e:
         print(f"Error connecting to MySQL: {e}")
         sys.exit(1)
-        
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Usage: ./list_states.py mysql_username mysql_password database_name")
+        print("Usage: ./list_states.py database_name")
         sys.exit(1)
 
     username = sys.argv[1]
