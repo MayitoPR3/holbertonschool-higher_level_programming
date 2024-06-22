@@ -11,9 +11,9 @@ import sys
 def list_states(username, password, database):
     # Connect to MySQL database
     try:
-        db = MySQLdb.connect(host='localhost', 
-                            port=3306, 
-                            user=username, 
+        db = MySQLdb.connect(host='localhost',
+                            port=3306,
+                            user=username,
                             passwd=password, 
                             db=database)
 
