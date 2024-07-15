@@ -30,7 +30,7 @@ def generate_invitations(template, attendees):
             output_content = output_content.replace(placeholder, str(value))
         
         # Replace any remaining placeholders that were not found in the attendee's data
-        output_content = output_content.replace("{N/A}")
+        output_content = str.replace('N/A')
         
         # Step 4: Generate Output Files
         output_filename = f'output_{index}.txt'
