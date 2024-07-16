@@ -53,26 +53,28 @@ def read_csv_file():
 # Route to display product data
 @app.route('/products')
 def display_products():
-    source = request.args.get('source', default='json')
+    source = request.args.get('source')
+    product_id = request.args.get('id')
 
+    if source not in ['json', 'csv']:
+        return render_template('product_display.html', error='Wrong source')
+
+    data = []
     if source == 'json':
-        # Fetch data as JSON
-        products = fetch_data_from_sqlite()
-        products_json = json.dumps(products)
-        return render_template('product_display.html', products=products_json)
-
+        data = read_json_file()
     elif source == 'csv':
-        # Fetch data as CSV (not implemented in this example)
-        return "CSV Source not implemented yet."
-
+        data = read_csv_file()
     elif source == 'sql':
-        # Fetch data from SQLite database
-        products = fetch_data_from_sqlite()
-        return render_template('product_display.html', products=products)
+        data = read_from_sqlite()
 
-    else:
-        # Handle wrong source error
-        return "Wrong source. Valid sources are 'json', 'csv', or 'sql'."
+    # Filter by product_id if provided
+    if product_id:
+        filtered_data = [product for product in data if str(product['id']) == product_id]
+        if not filtered_data:
+            return render_template('product_display.html', error='Product not found')
+        data = filtered_data
+
+    return render_template('product_display.html', products=data)
 
 
 # Function to fetch data from SQLite database
