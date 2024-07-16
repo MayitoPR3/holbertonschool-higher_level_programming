@@ -77,16 +77,6 @@ def display_products():
     return render_template('product_display.html', products=data)
 
 
-# Function to fetch data from SQLite database
-def fetch_data_from_sqlite():
-    conn = sqlite3.connect('products.db')
-    cursor = conn.cursor()
-    cursor.execute('SELECT id, name, category, price FROM Products')
-    products = cursor.fetchall()
-    conn.close()
-    return products
-
-
 def read_from_sqlite():
     try:
         conn = sqlite3.connect('products.db')
