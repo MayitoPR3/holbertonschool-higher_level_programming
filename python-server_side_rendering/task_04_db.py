@@ -1,8 +1,7 @@
-from flask import Flask, render_template, request
-import sqlite3
 import csv
 import json
-import os
+from flask import Flask, render_template, request
+import sqlite3
 
 app = Flask(__name__)
 
@@ -50,26 +49,31 @@ def read_csv_file():
     return data
 
 
-# Route to display product data
+# Route to display products from different sources
 @app.route('/products')
 def display_products():
     source = request.args.get('source')
     product_id = request.args.get('id')
 
-    if source not in ['json', 'csv']:
+    if source not in ['json', 'csv', 'sql']:
         return render_template('product_display.html', error='Wrong source')
 
     data = []
+
     if source == 'json':
-        data = read_json_file()
+        data = read_json_file()  # Implement your read_json_file function here
     elif source == 'csv':
-        data = read_csv_file()
+        data = read_csv_file()   # Implement your read_csv_file function here
     elif source == 'sql':
-        data = read_from_sqlite()
+        data = fetch_data_from_sqlite()
+
+    # Handle error if data fetching from SQLite fails
+    if source == 'sql' and data is None:
+        return render_template('product_display.html', error='Database error')
 
     # Filter by product_id if provided
     if product_id:
-        filtered_data = [product for product in data if str(product['id']) == product_id]
+        filtered_data = [product for product in data if str(product[0]) == product_id]
         if not filtered_data:
             return render_template('product_display.html', error='Product not found')
         data = filtered_data
@@ -77,23 +81,23 @@ def display_products():
     return render_template('product_display.html', products=data)
 
 
-def read_from_sqlite():
+# Function to fetch data from SQLite database
+def fetch_data_from_sqlite():
     try:
         conn = sqlite3.connect('products.db')
         cursor = conn.cursor()
+
+        # Fetch all products from SQLite Products table
         cursor.execute('SELECT id, name, category, price FROM Products')
-        data = cursor.fetchall()
+        products = cursor.fetchall()
+
         conn.close()
-        products = [{'id': row[0], 'name': row[1], 'category': row[2], 'price': row[3]} for row in data]
+
         return products
+
     except sqlite3.Error as e:
         print(f"SQLite error: {e}")
-        return []
-
-
-@app.errorhandler(500)
-def internal_server_error(e):
-    return render_template('error.html', message='Database error'), 500
+        return None
 
 
 if __name__ == '__main__':
